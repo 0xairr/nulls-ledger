@@ -326,7 +326,7 @@
     });
     fillRow();
     const holders = new Set(awards.map((a) => a.winner.toLowerCase())).size;
-    $("c1-count").textContent = `${awards.length} cards, ${holders} players`;
+    $("c1-count").textContent = `${awards.length} cards, ${holders} winners`;
   }
 
   const columns = () => getComputedStyle($("blocks")).gridTemplateColumns.split(" ").length;
@@ -378,7 +378,7 @@
     });
     const l = ledger.list;
     if (l) $("list").replaceChildren(el("b", { textContent: String(l.count) }),
-      el("span", { textContent: `players on the NULLS LIST. Newest: @${l.latest}, ${ago(l.at)}.` }));
+      el("span", { textContent: `players on the NULLS LIST. Newest: ${l.newest ? `#${l.newest} ` : ""}@${l.latest}, ${ago(l.at)}.` }));
   }
 
   let ledger;

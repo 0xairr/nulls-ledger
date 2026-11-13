@@ -68,13 +68,17 @@ class Collect(unittest.TestCase):
     def test_award_resolved_and_quest_solved_with_time(self):
         win = post(101, "@nullsxyz @rhea_finance Crash Bandicoot", ts=T0 + 35, who="vinniedotzec", reply_to=("nullsxyz", 100))
         award = post(102, "@vinniedotzec @rhea_finance « memory card unlocked »", ts=T0 + 140, reply_to=("vinniedotzec", 101))
-        L = self.run_collect([{"results": [award, QUEST]}], {"101": win},
-                             nl=[{"text": "« PLAYER #114 REGISTERED »\n\n@Milanko99, you're on", "created_timestamp": T0}])
+        nl = [{"text": f"« PLAYER #{n:03d} REGISTERED »\n\n@p{n}, you're on", "created_timestamp": T0 + n}
+              for n in [114, 113, 112] + list(range(100, 24, -1))]  # announcing starts at #025; #101-#111 skipped
+        L = self.run_collect([{"results": [award, QUEST]}], {"101": win}, nl=nl)
         a = L["awards"][0]
         self.assertEqual((a["winner"], a["for"]["kind"], a["avatar"]), ("vinniedotzec", "quest", "https://pbs.twimg.com/vinniedotzec_200x200.jpg"))
         q = L["quests"][0]
         self.assertEqual((q["solved_by"], q["answer"], q["solve_secs"]), ("vinniedotzec", "Crash Bandicoot", 35))
-        self.assertEqual(L["list"]["count"], 114)
+        # #001-#024 joined before announcements began (counted); #101-#111 were skipped (not counted)
+        skipped = list(range(101, 112))
+        self.assertEqual((L["list"]["count"], L["list"]["newest"], L["list"]["skipped"], L["list"]["latest"]),
+                         (114 - len(skipped), 114, skipped, "p114"))
         self.assertEqual(L["scanned_to"], "102")
 
     def test_failed_page_does_not_advance_scan_point(self):

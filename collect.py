@@ -139,14 +139,33 @@ def resolve_award(award, quest_ids):
 
 
 def list_count():
-    d = get_json(f"{FX}/profile/{LIST}/statuses?count=20")
-    best = None
-    for s in (d or {}).get("results") or []:
-        m = re.search(r"PLAYER #(\d+) REGISTERED", s.get("text") or "")
-        if m and (best is None or int(m.group(1)) > best["count"]):
-            who = re.findall(r"@(\w+)", s.get("text") or "")
-            best = {"count": int(m.group(1)), "latest": who[0] if who else None, "at": iso(s["created_timestamp"])}
-    return best
+    """Players on the NULLS LIST, from @nullslist's « PLAYER #N REGISTERED » posts.
+    Neither the highest N nor the number of posts is the count: @nullslist only started
+    announcing at #024 (Oct 29; #001-#023 got in before it existed), and it skipped #099.
+    So count = newest - numbers missing since announcing began (#114 newest -> 113 players).
+    Returns None unless the whole timeline was read."""
+    players, cursor = {}, None
+    for _ in range(MAX_PAGES):
+        d = get_json(f"{FX}/profile/{LIST}/statuses?count=100" + (f"&cursor={urllib.parse.quote(cursor)}" if cursor else ""))
+        res = (d or {}).get("results")
+        if res is None:
+            return None  # a failed page would undercount; keep the last good number instead
+        new = 0
+        for s in res:
+            m = re.search(r"PLAYER #(\d+) REGISTERED", s.get("text") or "")
+            if m and int(m.group(1)) not in players:
+                who = re.findall(r"@(\w+)", s.get("text") or "")
+                players[int(m.group(1))] = {"latest": who[0] if who else None, "at": iso(s["created_timestamp"])}
+                new += 1
+        c = d.get("cursor")
+        cursor = c.get("bottom") if isinstance(c, dict) else c
+        if not res or not new or not cursor:
+            break
+    if not players:
+        return None
+    newest, first = max(players), min(players)
+    skipped = [n for n in range(first, newest) if n not in players]
+    return {"count": newest - len(skipped), "newest": newest, "skipped": skipped, **players[newest]}
 
 
 def solve(quests, awards):
