@@ -7,7 +7,7 @@ A fan-made tracker for the [NULLS](https://nulls.world) memory cards. It logs ev
 quest and how fast it was solved, and the NULLS LIST count. It's styled after the PS1 memory card
 screen their art keeps returning to: each winner's avatar becomes a 16x16 save icon.
 
-Unofficial and not affiliated with nulls. Everything comes from public posts by
+Made by [@0xAirr](https://x.com/0xAirr). Unofficial and not affiliated with nulls. Everything comes from public posts by
 [@nullsxyz](https://x.com/nullsxyz) and [@nullslist](https://x.com/nullslist).
 
 ## How it works
