@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memory Card Ledger</title>
+<meta name="description" content="Every NULLS memory card the team has handed out, who earned it and why, plus every side quest and how fast it was solved. Fan-made, unofficial.">
+<meta property="og:title" content="Memory Card Ledger">
+<meta property="og:description" content="Every NULLS memory card handed out, who earned it and why. Fan-made, unofficial.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23d63440' d='M3 1h8l3 3v11H3z'/%3E%3Cpath fill='%23f6efe6' d='M5 7h6v5H5z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=DotGothic16&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #160f3a;
+    --plum: #3b1238;
+    --plastic: #d63440;
+    --ink: #f6efe6;
+    --dim: #c2b2d4;
+    --quest: #ffc21a;
+    --build: #1ec8f0;
+    --art: #ff4fb0;
+    --post: #3fe0b8;
+    --focus: #ffc21a;
+    --dot: "DotGothic16", ui-monospace, monospace;
+    --text: "Atkinson Hyperlegible", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { color-scheme: dark; background: var(--plum); }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(120% 80% at 50% 0%, #2a1d6b 0%, var(--night) 45%, var(--plum) 100%);
+    color: var(--ink);
+    font: 17px/1.55 var(--text);
+  }
+  .screen { max-width: 1080px; margin: 0 auto; padding: 28px 16px 40px; }
+
+  /* The title line: like the PS1 memory card screen, it names whatever block is selected. */
+  .title {
+    min-height: 132px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 18px;
+  }
+  .title h1 {
+    margin: 0;
+    font: 400 clamp(28px, 5.2vw, 52px)/1.05 var(--dot);
+    letter-spacing: .01em;
+    overflow-wrap: anywhere;
+  }
+  .title p { margin: 8px 0 0; max-width: 62ch; color: var(--dim); font-size: 18px; }
+  .title p strong { color: var(--ink); font-weight: 700; }
+
+  .cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    grid-template-areas: "c1 c2" "detail detail";
+    gap: 22px;
+    align-items: start;
+  }
+  #card1 { grid-area: c1; }
+  #card2 { grid-area: c2; }
+  #detail { grid-area: detail; }
+  /* On phones the details sit right under the blocks you tap, not below the quests. */
+  @media (max-width: 820px) {
+    .cards { grid-template-columns: 1fr; grid-template-areas: "c1" "detail" "c2"; }
+  }
+
+  /* A memory card: translucent red plastic, ribbed grip on top, notched corner. */
+  .card {
+    --notch: 26px;
+    position: relative;
+    padding: 2px;
+    background: color-mix(in srgb, var(--plastic) 70%, white);
+    clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%);
+  }
+  .card-body {
+    clip-path: polygon(0 0, calc(100% - var(--notch) + 1px) 0, 100% calc(var(--notch) - 1px), 100% 100%, 0 100%);
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,.10) 0 3px, transparent 3px 9px) top / 100% 14px no-repeat,
+      linear-gradient(165deg, rgba(214,52,64,.46), rgba(110,16,44,.62));
+    backdrop-filter: blur(6px);
+    padding: 24px 18px 18px;
+  }
+  .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  .card-head h2 { margin: 0; font: 400 20px/1.2 var(--dot); }
+  .card-head span { font-size: 14px; color: var(--dim); }
+
+  .blocks { display: grid; grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)); gap: 8px; }
+  .block {
+    aspect-ratio: 1;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background: rgba(10, 6, 30, .55);
+    box-shadow: inset 0 -3px 0 var(--kind, var(--post));
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+  }
+  .block canvas { width: 70%; height: 70%; image-rendering: pixelated; }
+  .block[aria-pressed="true"] { background: rgba(255, 246, 230, .16); outline: 2px solid var(--kind); outline-offset: 2px; }
+  .block:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .block.empty { cursor: default; box-shadow: none; background: rgba(10, 6, 30, .22); }
+  @media (prefers-reduced-motion: no-preference) {
+    .block.writing { animation: write .28s steps(3) both; animation-delay: calc(var(--i) * 28ms); }
+    @keyframes write { from { opacity: 0; transform: scale(.6); } }
+  }
+
+  .kind-quest { --kind: var(--quest); }
+  .kind-build { --kind: var(--build); }
+  .kind-art { --kind: var(--art); }
+  .kind-post { --kind: var(--post); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 14px 0 0; padding: 0; list-style: none; font-size: 14px; color: var(--dim); }
+  .legend li::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 6px; background: var(--kind); vertical-align: -1px; }
+
+  .quests { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .quest {
+    width: 100%;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+    border: 0;
+    border-left: 4px solid var(--quest);
+    background: rgba(10, 6, 30, .5);
+    padding: 12px 14px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  .quest { display: block; text-decoration: none; }
+  .quest:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .quest.open { border-left-style: dashed; }
+  .quest b { display: block; font: 400 16px/1.3 var(--dot); }
+  .quest .q { display: block; color: var(--dim); font-size: 15px; margin-top: 2px; }
+  .quest .r { display: block; margin-top: 6px; font-size: 15px; }
+  .quest .r em { font-style: normal; color: var(--quest); }
+
+  .list { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.16); }
+  .list b { font: 400 34px/1 var(--dot); color: var(--ink); }
+  .list span { display: block; color: var(--dim); font-size: 14px; margin-top: 4px; }
+
+  .detail { min-height: 120px; max-width: 70ch; }
+  .detail blockquote {
+    margin: 0 0 12px;
+    padding: 0 0 0 16px;
+    border-left: 3px solid var(--kind, var(--post));
+    font-size: 18px;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+  }
+  .detail .when { color: var(--dim); font-size: 15px; margin: 0 0 12px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .actions a {
+    color: var(--night);
+    background: var(--ink);
+    text-decoration: none;
+    font: 400 15px/1 var(--dot);
+    padding: 11px 14px;
+    border-radius: 3px;
+  }
+  .actions a.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px rgba(246,239,230,.5); }
+  .actions a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  .message { color: var(--dim); font-size: 16px; }
+  footer { margin-top: 40px; color: var(--dim); font-size: 14px; max-width: 70ch; }
+  footer a { color: var(--ink); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+<main class="screen">
+  <header class="title" aria-live="polite">
+    <h1 id="title">Reading memory card…</h1>
+    <p id="subtitle">Every NULLS memory card the team has handed out, and who earned it.</p>
+  </header>
+
+  <div class="cards">
+    <section class="card" id="card1" aria-labelledby="c1">
+      <div class="card-body">
+        <div class="card-head"><h2 id="c1">Memory card 1</h2><span id="c1-count"></span></div>
+        <div class="blocks" id="blocks" role="group" aria-label="Memory cards awarded, oldest first"></div>
+        <ul class="legend" aria-label="What each color means">
+          <li class="kind-quest">Side quest</li><li class="kind-build">Built something</li>
+          <li class="kind-art">Art</li><li class="kind-post">Post or thread</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card" id="card2" aria-labelledby="c2">
+      <div class="card-body">
+        <div class="card-head"><h2 id="c2">Memory card 2</h2><span>Side quests</span></div>
+        <ul class="quests" id="quests"></ul>
+        <div class="list" id="list"></div>
+      </div>
+    </section>
+
+    <section class="detail" id="detail" aria-live="polite"></section>
+  </div>
+
+  <footer>
+    <p>Fan-made and unofficial, not affiliated with nulls. Built from public posts by
+      <a href="https://x.com/nullsxyz">@nullsxyz</a> and <a href="https://x.com/nullslist">@nullslist</a>,
+      refreshed about every 10 minutes. Card colors aren't public, so blocks are colored by what the card was earned for.
+      <span id="updated"></span> <a href="https://github.com/0xairr/nulls-ledger">Source</a>.</p>
+  </footer>
+</main>
+
+<script>
+(() => {
+  const REPO = "0xairr/nulls-ledger";
+  const SOURCES = [
+    `https://raw.githubusercontent.com/${REPO}/main/ledger.json?v=${Math.floor(Date.now() / 60000)}`,
+    "ledger.json",
+  ];
+  const KIND = {
+    quest: "Solved a side quest",
+    build: "Built something",
+    art: "Made fan art",
+    post: "Posted about nulls",
+  };
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, props = {}, ...kids) => {
+    const n = Object.assign(document.createElement(tag), props);
+    kids.forEach((k) => n.append(k));
+    return n;
+  };
+  // Everything in ledger.json comes from public posts: only trust links/images on known hosts.
+  const safeUrl = (u, hosts) => {
+    try { const x = new URL(u); return x.protocol === "https:" && hosts.includes(x.hostname) ? x.href : null; }
+    catch { return null; }
+  };
+  const xUrl = (u) => safeUrl(u, ["x.com", "twitter.com"]);
+  const imgUrl = (u) => safeUrl(u, ["pbs.twimg.com"]);
+
+  const fmtDate = (iso) => new Date(iso).toLocaleString(undefined, { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+  const ago = (iso) => {
+    const m = Math.round((Date.now() - new Date(iso)) / 60000);
+    if (m < 2) return "just now";
+    if (m < 90) return `${m} minutes ago`;
+    const h = Math.round(m / 60);
+    return h < 36 ? `${h} hours ago` : `${Math.round(h / 24)} days ago`;
+  };
+  const secs = (s) => (s < 120 ? `${s} seconds` : `${Math.round(s / 60)} minutes`);
+
+  // A nulls silhouette on 16x16: black head, two ears, crescent eyes. Used when an avatar won't load.
+  const SIL = [
+    "....X......X....", "...XX......XX...", "..XXXXXXXXXXXX..", ".XXXXXXXXXXXXXX.",
+    ".XXXXXXXXXXXXXX.", "XXXXXXXXXXXXXXXX", "XXXWWXXXXXXWWXXX", "XXWXXXXXXXWXXXXX",
+    "XXXXXXXXXXXXXXXX", "XXXXXXXXXXXXXXXX", ".XXXXXXXXXXXXXX.", "..XXXXXXXXXXXX..",
+    "....XXXXXXXX....", "....XXXXXXXX....", "...XXXXXXXXXX...", "..XXXXXXXXXXXX..",
+  ];
+  function drawSilhouette(ctx) {
+    ctx.clearRect(0, 0, 16, 16);
+    SIL.forEach((row, y) => [...row].forEach((c, x) => {
+      if (c === ".") return;
+      ctx.fillStyle = c === "W" ? "#f6efe6" : "#05040c";
+      ctx.fillRect(x, y, 1, 1);
+    }));
+  }
+  // Each winner's avatar becomes a 16x16 save icon, like a PS1 memory card block.
+  function saveIcon(avatar) {
+    const c = el("canvas", { width: 16, height: 16 });
+    c.setAttribute("aria-hidden", "true");
+    const ctx = c.getContext("2d");
+    drawSilhouette(ctx);
+    const src = imgUrl(avatar);
+    if (src) {
+      const img = new Image();
+      img.onload = () => { ctx.imageSmoothingEnabled = true; ctx.drawImage(img, 0, 0, 16, 16); };
+      img.src = src;
+    }
+    return c;
+  }
+
+  let awards = [], selected = -1;
+
+  function headline(a) {
+    const f = a.for || {};
+    const kind = f.kind || "post";
+    const q = kind === "quest" ? ledger.quests.find((x) => x.id === f.re) : null;
+    if (q && q.solve_secs != null) return `Solved “${q.title}” in ${secs(q.solve_secs)}`;
+    return KIND[kind];
+  }
+
+  function select(i, focus) {
+    if (i < 0 || i >= awards.length) return;
+    selected = i;
+    const a = awards[i], f = a.for || {}, kind = f.kind || "post";
+    document.querySelectorAll(".block[data-i]").forEach((b) => b.setAttribute("aria-pressed", String(+b.dataset.i === i)));
+    if (focus) document.querySelector(`.block[data-i="${i}"]`)?.focus();
+    $("title").textContent = `@${a.winner}`;
+    const sub = $("subtitle");
+    sub.replaceChildren(el("strong", { textContent: headline(a) }), `, card ${i + 1} of ${awards.length}.`);
+    const d = $("detail");
+    d.className = `detail kind-${kind}`;
+    const links = el("div", { className: "actions" });
+    if (xUrl(f.url)) links.append(el("a", { href: xUrl(f.url), textContent: "Open their post", target: "_blank", rel: "noopener" }));
+    if (xUrl(a.url)) links.append(el("a", { href: xUrl(a.url), textContent: "See the award", className: "ghost", target: "_blank", rel: "noopener" }));
+    d.replaceChildren(
+      el("blockquote", { textContent: f.text || "Their post couldn't be loaded yet. It's retried on the next refresh." }),
+      el("p", { className: "when", textContent: `Card unlocked ${fmtDate(a.at)}${f.at ? `, for a post from ${fmtDate(f.at)}` : ""}.` }),
+      links,
+    );
+  }
+
+  function renderBlocks() {
+    const grid = $("blocks");
+    grid.replaceChildren();
+    awards.forEach((a, i) => {
+      const kind = (a.for && a.for.kind) || "post";
+      const b = el("button", { type: "button", className: `block writing kind-${kind}` });
+      b.dataset.i = i;
+      b.style.setProperty("--i", i);
+      b.setAttribute("aria-pressed", "false");
+      b.setAttribute("aria-label", `@${a.winner}: ${KIND[kind].toLowerCase()}, ${fmtDate(a.at)}`);
+      b.tabIndex = i === awards.length - 1 ? 0 : -1;
+      b.append(saveIcon(a.avatar));
+      b.addEventListener("click", () => select(i));
+      b.addEventListener("focus", () => { roving(i); select(i); });
+      if (matchMedia("(hover: hover)").matches) b.addEventListener("pointerenter", () => select(i));
+      grid.append(b);
+    });
+    fillRow();
+    const holders = new Set(awards.map((a) => a.winner.toLowerCase())).size;
+    $("c1-count").textContent = `${awards.length} cards, ${holders} players`;
+  }
+
+  const columns = () => getComputedStyle($("blocks")).gridTemplateColumns.split(" ").length;
+  // Finish the last row with unused blocks, like the free space on a real memory card.
+  function fillRow() {
+    const grid = $("blocks");
+    grid.querySelectorAll(".empty").forEach((n) => n.remove());
+    const cols = columns(), free = (cols - (awards.length % cols)) % cols;
+    for (let k = 0; k < free; k++) grid.append(el("div", { className: "block empty", ariaHidden: "true" }));
+  }
+  let resizeQueued = false;
+  addEventListener("resize", () => {
+    if (resizeQueued) return;
+    resizeQueued = true;
+    requestAnimationFrame(() => { resizeQueued = false; fillRow(); });
+  });
+
+  function roving(i) {
+    document.querySelectorAll(".block[data-i]").forEach((b) => (b.tabIndex = +b.dataset.i === i ? 0 : -1));
+  }
+  $("blocks").addEventListener("keydown", (e) => {
+    const cols = columns();
+    const step = { ArrowRight: 1, ArrowLeft: -1, ArrowDown: cols, ArrowUp: -cols, Home: -Infinity, End: Infinity }[e.key];
+    if (step === undefined) return;
+    e.preventDefault();
+    const next = Math.max(0, Math.min(awards.length - 1, selected + step));
+    select(next, true);
+  });
+
+  function renderQuests() {
+    const ul = $("quests");
+    ul.replaceChildren();
+    if (!ledger.quests.length) ul.append(el("li", { className: "message", textContent: "No side quests yet. New ones show up here within about 10 minutes." }));
+    ledger.quests.forEach((q) => {
+      const solved = q.solved_by != null;
+      // Solved quests jump to the winner's block; open ones link to the quest post on X.
+      const item = solved ? el("button", { type: "button", className: "quest" })
+                          : el("a", { className: "quest open", href: xUrl(q.url) || "#", target: "_blank", rel: "noopener" });
+      const r = el("span", { className: "r" });
+      if (solved) r.append(`@${q.solved_by} answered `, el("em", { textContent: q.answer }), ` in ${secs(q.solve_secs)}.`);
+      else r.textContent = "Open now. The first correct reply on X wins the card.";
+      item.append(el("b", { textContent: q.title }),
+        el("span", { className: "q", textContent: `${q.prompt}${q.hint ? `  ${q.hint}` : ""}` }), r);
+      if (solved) item.addEventListener("click", () => {
+        const i = awards.findIndex((a) => a.for && a.for.re === q.id);
+        if (i >= 0) select(i, true);
+      });
+      ul.append(el("li", {}, item));
+    });
+    const l = ledger.list;
+    if (l) $("list").replaceChildren(el("b", { textContent: String(l.count) }),
+      el("span", { textContent: `players on the NULLS LIST. Newest: @${l.latest}, ${ago(l.at)}.` }));
+  }
+
+  let ledger;
+  async function load() {
+    for (const u of SOURCES) {
+      try { const r = await fetch(u, { cache: "no-store" }); if (r.ok) return await r.json(); } catch {}
+    }
+    throw new Error("unavailable");
+  }
+
+  load().then((data) => {
+    ledger = { awards: [], quests: [], ...data };
+    awards = ledger.awards;
+    renderBlocks();
+    renderQuests();
+    if (ledger.updated) $("updated").textContent = `Last change ${ago(ledger.updated)}.`;
+    if (awards.length) select(awards.length - 1);
+    else {
+      $("title").textContent = "No saves yet";
+      $("subtitle").textContent = "No memory cards have been handed out yet. They show up here within about 10 minutes.";
+    }
+  }).catch(() => {
+    $("title").textContent = "Couldn't read the memory card";
+    $("subtitle").textContent = "The ledger didn't load. It's refreshed every 10 minutes, so try again in a moment.";
+  });
+})();
+</script>
+</body>
+</html>
