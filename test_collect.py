@@ -51,9 +51,10 @@ class Parsing(unittest.TestCase):
 
 
 class Collect(unittest.TestCase):
-    def run_collect(self, feed_pages, statuses, ledger=None, nl=None, list_down=False):
+    def run_collect(self, feed_pages, statuses, ledger=None, nl=None, list_down=False, nl_pages=None):
         pages = list(feed_pages)
-        self.lookups = []
+        nl_pages = list(nl_pages) if nl_pages is not None else None
+        self.lookups, self.list_reads = [], 0
 
         def get_json(url, tries=4):
             if "/search" in url:
@@ -61,6 +62,9 @@ class Collect(unittest.TestCase):
             if "/status/" in url:
                 return {"status": statuses.get(url.rsplit("/", 1)[1])}
             if "/profile/nullslist/statuses" in url:
+                self.list_reads += 1
+                if nl_pages is not None:
+                    return nl_pages.pop(0) if nl_pages else None
                 return None if list_down else {"results": nl or []}
             if "/profile/" in url:  # avatar lookup
                 who = url.rsplit("/", 1)[1]
@@ -114,6 +118,26 @@ class Collect(unittest.TestCase):
                 else:
                     self.assertEqual(self.lookups, [], f"run {run} should have given up")
         self.assertEqual(L["players"][0]["avatar_misses"], c.AVATAR_GIVE_UP)
+
+    def reg(self, *nos):
+        return [{"text": f"« PLAYER #{n:03d} REGISTERED »\n\n@p{n}, you're on", "created_timestamp": T0 + n} for n in nos]
+
+    def test_new_players_need_only_the_first_page(self):
+        """Steady state: page 1 overlaps known players, so the flaky deeper pages are never read."""
+        known = {"players": [{"no": n, "handle": f"p{n}", "avatar": f"https://pbs.twimg.com/p{n}.jpg"} for n in (24, 25, 26)]}
+        page1 = {"results": self.reg(28, 27, 26, 25), "cursor": {"bottom": "more"}}
+        L = self.run_collect([{"results": []}], {}, ledger=known, nl_pages=[page1, None])
+        self.assertEqual(self.list_reads, 1)
+        self.assertEqual([p["no"] for p in L["players"]], [24, 25, 26, 27, 28])
+        self.assertEqual(L["players"][0]["avatar"], "https://pbs.twimg.com/p24.jpg")  # kept, not looked up again
+        self.assertEqual((L["list"]["count"], L["list"]["newest"]), (28, 28))
+
+    def test_gap_with_failed_deeper_page_keeps_last_good(self):
+        """No overlap on page 1 means a gap; if page 2 fails, don't miscount the gap as skipped."""
+        known = {"players": [{"no": 24, "handle": "p24"}], "list": {"count": 24}}
+        page1 = {"results": self.reg(40, 39), "cursor": {"bottom": "more"}}
+        L = self.run_collect([{"results": []}], {}, ledger=known, nl_pages=[page1, None])
+        self.assertEqual((L["players"], L["list"]), (known["players"], known["list"]))
 
     def test_list_fetch_failure_keeps_last_good_players(self):
         prev = {"players": [{"no": 24, "handle": "p24", "avatar": None}], "list": {"count": 24}}

@@ -142,26 +142,34 @@ AVATARS_PER_RUN = 30  # profile lookups per run, so a GitHub run stays short; th
 AVATAR_GIVE_UP = 3    # failed runs before a handle keeps the silhouette (renamed/suspended accounts 404 forever)
 
 
-def list_players():
-    """Every « PLAYER #N REGISTERED » post by @nullslist -> {N: player}. None if any page
-    failed (a partial list would undercount; the last good one is kept instead)."""
-    players, cursor = {}, None
+def list_players(known):
+    """@nullslist's « PLAYER #N REGISTERED » posts merged into `known` ({N: player} from the
+    last good run). New players appear at the top, so a normal run reads one page and stops as
+    soon as it reaches a player it already has. Only a first run, or a page with no overlap (a
+    gap), pages further back - FxTwitter's deeper pages often 404 from GitHub's servers.
+    Returns None if a needed page failed: a gap would be miscounted as skipped numbers."""
+    players, cursor = dict(known), None
     for _ in range(MAX_PAGES):
         d = get_json(f"{FX}/profile/{LIST}/statuses?count=100" + (f"&cursor={urllib.parse.quote(cursor)}" if cursor else ""))
         res = (d or {}).get("results")
         if res is None:
             return None
-        new = 0
+        new = overlap = 0
         for s in res:
             m = re.search(r"PLAYER #(\d+) REGISTERED", s.get("text") or "")
-            if m and int(m.group(1)) not in players:
+            if not m:
+                continue
+            no = int(m.group(1))
+            if no in known:
+                overlap += 1
+            elif no not in players:
                 who = re.findall(r"@(\w+)", s.get("text") or "")
-                players[int(m.group(1))] = {"no": int(m.group(1)), "handle": who[0] if who else None,
-                                            "at": iso(s["created_timestamp"]), "url": s.get("url")}
+                players[no] = {"no": no, "handle": who[0] if who else None,
+                               "at": iso(s["created_timestamp"]), "url": s.get("url")}
                 new += 1
         c = d.get("cursor")
         cursor = c.get("bottom") if isinstance(c, dict) else c
-        if not res or not new or not cursor:
+        if overlap or not res or not new or not cursor:
             break
     return players or None
 
@@ -227,15 +235,8 @@ def collect(ledger):
     solve(new["quests"], new["awards"])
     if complete and items:
         new["scanned_to"] = str(max(int(ledger.get("scanned_to", "0")), max(int(i) for i in items)))
-    players = list_players()
+    players = list_players({p["no"]: p for p in ledger.get("players", [])})  # known ones keep avatars/misses
     if players:
-        old = {p["no"]: p for p in ledger.get("players", [])}
-        for no, p in players.items():  # keep avatars / miss counts already found, unless the handle changed
-            prev = old.get(no, {})
-            if prev.get("handle") == p["handle"]:
-                for k in ("avatar", "avatar_misses"):
-                    if prev.get(k):
-                        p[k] = prev[k]
         known = {a["winner"].lower(): a["avatar"] for a in new["awards"] if a.get("winner") and a.get("avatar")}
         new["players"] = [players[n] for n in sorted(players)]
         fill_avatars(new["players"], known)
