@@ -390,6 +390,40 @@
    },
    "name": "0xangel",
    "avatar": "https://pbs.twimg.com/profile_images/1999025495854182400/_faFMfz2_200x200.jpg"
+  },
+  {
+   "id": "2121621838497259830",
+   "at": "2026-11-14T15:10:38Z",
+   "url": "https://x.com/nullsxyz/status/2121621838497259830",
+   "winner": "emir_ethh",
+   "for_id": "2121619620004085793",
+   "for": {
+    "id": "2121619620004085793",
+    "url": "https://x.com/emir_ethh/status/2121619620004085793",
+    "at": "2026-11-14T15:01:49Z",
+    "text": "Inventor",
+    "kind": "post",
+    "re": "2121619404966248945"
+   },
+   "name": "Emir.Eth (❖,❖)",
+   "avatar": "https://pbs.twimg.com/profile_images/2051774853565329413/NSAOqxpe_200x200.jpg"
+  },
+  {
+   "id": "2121623859820388656",
+   "at": "2026-11-14T15:18:40Z",
+   "url": "https://x.com/nullsxyz/status/2121623859820388656",
+   "winner": "olapola_1846",
+   "for_id": "2121621917694066975",
+   "for": {
+    "id": "2121621917694066975",
+    "url": "https://x.com/olapola_1846/status/2121621917694066975",
+    "at": "2026-11-14T15:10:57Z",
+    "text": "how i writed first?",
+    "kind": "post",
+    "re": "2121621838497259830"
+   },
+   "name": "۟OLapola",
+   "avatar": "https://pbs.twimg.com/profile_images/2121212590357389312/5n6p-8-X_200x200.jpg"
   }
  ],
  "quests": [
@@ -428,7 +462,7 @@
    "solve_secs": 18
   }
  ],
- "scanned_to": "2121370368548253942",
+ "scanned_to": "2121624003836280901",
  "list": {
   "count": 113,
   "newest": 114,
@@ -439,7 +473,7 @@
   "latest": "Milanko99",
   "at": "2026-11-13T18:42:46Z"
  },
- "updated": "2026-11-14T14:19:50Z",
+ "updated": "2026-11-14T19:18:33Z",
  "players": [
   {
    "no": 24,
