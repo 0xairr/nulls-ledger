@@ -2,10 +2,15 @@
 
 **https://0xairr.github.io/nulls-ledger/**
 
-A fan-made tracker for the [NULLS](https://nulls.world) memory cards. It logs every
-« memory card unlocked » the team hands out on X (who earned it, for what, and when), every side
-quest and how fast it was solved, and the NULLS LIST count. It's styled after the PS1 memory card
-screen their art keeps returning to: each winner's avatar becomes a 16x16 save icon.
+A fan-made tracker for the [NULLS](https://nulls.world) memory cards and the NULLS LIST. Styled
+after the PS1 memory card screen their art keeps returning to, where every player's avatar becomes
+a 16x16 save icon:
+
+- **Memory card 1:** every « memory card unlocked » the team hands out on X: who earned it, for
+  what (side quest, build, art, post) and when.
+- **Memory card 2:** every side quest, its hint, who solved it and how fast.
+- **Memory card 3:** every player on the NULLS LIST, by number, with a dot on players who also
+  hold a memory card.
 
 Made by [@0xAirr](https://x.com/0xAirr). Unofficial and not affiliated with nulls. Everything comes from public posts by
 [@nullsxyz](https://x.com/nullsxyz) and [@nullslist](https://x.com/nullslist).
@@ -16,6 +21,14 @@ Made by [@0xAirr](https://x.com/0xAirr). Unofficial and not affiliated with null
   announced. For each award it loads the post that earned it and sorts it into side quest, build,
   art or post. A quest is solved by the first award given to a reply under it, and the solve time is
   that reply's timestamp minus the quest's.
+- **The NULLS LIST** comes from @nullslist's « PLAYER #N REGISTERED » posts. Neither the highest
+  number nor the number of posts is the player count: @nullslist only began announcing at #024
+  (Oct 29; #001-#023 got in before it existed, shown as "?") and skipped #099. So the count is the
+  newest number minus the numbers skipped since announcing began (#114 newest -> 113 players). New
+  players appear at the top, so each run reads page 1 and merges; it only pages back on a first
+  run or a gap, because FxTwitter's deeper pages often 404 from GitHub's servers.
+- **Avatars:** card winners' avatars are reused; others are looked up, at most 30 per run, one
+  try each. A handle that fails 3 runs (renamed or suspended) keeps a nulls silhouette.
 - `.github/workflows/collect.yml` runs the tests, then the collector, every ~10 minutes, and commits
   `ledger.json` only when something changed. It's incremental: anything that fails to load (FxTwitter
   is flaky from datacenter IPs) is retried on the next run instead of being skipped.

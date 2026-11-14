@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Collect the NULLS memory-card ledger from public X data (via FxTwitter) into ledger.json.
 
-- awards: every « memory card unlocked » reply by @nullsxyz, with the post that earned it
-- quests: every "side quest:" post by @nullsxyz, and who solved it first (and how fast)
-- list:   the NULLS LIST count from @nullslist's « PLAYER #N REGISTERED » posts
+- awards:  every « memory card unlocked » reply by @nullsxyz, with the post that earned it
+- quests:  every "side quest:" post by @nullsxyz, and who solved it first (and how fast)
+- players: every NULLS LIST player from @nullslist's « PLAYER #N REGISTERED » posts, with avatars
+- list:    the player count (newest number minus numbers skipped since announcing began)
 
 Incremental: re-run any time (GitHub Actions runs it every ~10 min). Writes ledger.json
 only when something changed. Standard library only.
