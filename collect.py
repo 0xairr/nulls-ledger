@@ -138,34 +138,60 @@ def resolve_award(award, quest_ids):
     return award
 
 
-def list_count():
-    """Players on the NULLS LIST, from @nullslist's « PLAYER #N REGISTERED » posts.
-    Neither the highest N nor the number of posts is the count: @nullslist only started
-    announcing at #024 (Oct 29; #001-#023 got in before it existed), and it skipped #099.
-    So count = newest - numbers missing since announcing began (#114 newest -> 113 players).
-    Returns None unless the whole timeline was read."""
+AVATARS_PER_RUN = 30  # profile lookups per run, so a GitHub run stays short; the rest come next run
+AVATAR_GIVE_UP = 3    # failed runs before a handle keeps the silhouette (renamed/suspended accounts 404 forever)
+
+
+def list_players():
+    """Every « PLAYER #N REGISTERED » post by @nullslist -> {N: player}. None if any page
+    failed (a partial list would undercount; the last good one is kept instead)."""
     players, cursor = {}, None
     for _ in range(MAX_PAGES):
         d = get_json(f"{FX}/profile/{LIST}/statuses?count=100" + (f"&cursor={urllib.parse.quote(cursor)}" if cursor else ""))
         res = (d or {}).get("results")
         if res is None:
-            return None  # a failed page would undercount; keep the last good number instead
+            return None
         new = 0
         for s in res:
             m = re.search(r"PLAYER #(\d+) REGISTERED", s.get("text") or "")
             if m and int(m.group(1)) not in players:
                 who = re.findall(r"@(\w+)", s.get("text") or "")
-                players[int(m.group(1))] = {"latest": who[0] if who else None, "at": iso(s["created_timestamp"])}
+                players[int(m.group(1))] = {"no": int(m.group(1)), "handle": who[0] if who else None,
+                                            "at": iso(s["created_timestamp"]), "url": s.get("url")}
                 new += 1
         c = d.get("cursor")
         cursor = c.get("bottom") if isinstance(c, dict) else c
         if not res or not new or not cursor:
             break
-    if not players:
-        return None
+    return players or None
+
+
+def list_summary(players):
+    """Neither the highest N nor the number of posts is the player count: @nullslist only
+    started announcing at #024 (Oct 29; #001-#023 got in before it existed) and skipped #099.
+    So count = newest - numbers missing since announcing began (#114 newest -> 113 players)."""
     newest, first = max(players), min(players)
     skipped = [n for n in range(first, newest) if n not in players]
-    return {"count": newest - len(skipped), "newest": newest, "skipped": skipped, **players[newest]}
+    return {"count": newest - len(skipped), "newest": newest, "first_announced": first, "skipped": skipped,
+            "latest": players[newest]["handle"], "at": players[newest]["at"]}
+
+
+def fill_avatars(players, known):
+    """Give players an avatar: reuse ones already known (e.g. card winners), else look up at
+    most AVATARS_PER_RUN profiles, one quick try each. A handle that fails AVATAR_GIVE_UP runs
+    is left alone (the page draws a nulls silhouette), so dead accounts can't slow every run."""
+    todo = []
+    for p in players:
+        if not p.get("avatar") and p.get("handle"):
+            p["avatar"] = known.get(p["handle"].lower())
+            if not p["avatar"] and p.get("avatar_misses", 0) < AVATAR_GIVE_UP:
+                todo.append(p)
+    for p in todo[:AVATARS_PER_RUN]:
+        d = get_json(f"{FX}/profile/{p['handle']}", tries=1)
+        p["avatar"] = avatar((d or {}).get("user")) or None
+        if not p["avatar"]:
+            p["avatar_misses"] = p.get("avatar_misses", 0) + 1
+        time.sleep(0.5)  # be gentle: many lookups in a row get throttled
 
 
 def solve(quests, awards):
@@ -201,9 +227,19 @@ def collect(ledger):
     solve(new["quests"], new["awards"])
     if complete and items:
         new["scanned_to"] = str(max(int(ledger.get("scanned_to", "0")), max(int(i) for i in items)))
-    lc = list_count()
-    if lc:
-        new["list"] = lc
+    players = list_players()
+    if players:
+        old = {p["no"]: p for p in ledger.get("players", [])}
+        for no, p in players.items():  # keep avatars / miss counts already found, unless the handle changed
+            prev = old.get(no, {})
+            if prev.get("handle") == p["handle"]:
+                for k in ("avatar", "avatar_misses"):
+                    if prev.get(k):
+                        p[k] = prev[k]
+        known = {a["winner"].lower(): a["avatar"] for a in new["awards"] if a.get("winner") and a.get("avatar")}
+        new["players"] = [players[n] for n in sorted(players)]
+        fill_avatars(new["players"], known)
+        new["list"] = list_summary(players)
     return new
 
 

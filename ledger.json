@@ -432,11 +432,644 @@
  "list": {
   "count": 113,
   "newest": 114,
+  "first_announced": 24,
   "skipped": [
    99
   ],
   "latest": "Milanko99",
   "at": "2026-11-13T18:42:46Z"
  },
- "updated": "2026-11-14T00:54:15Z"
+ "updated": "2026-11-13T20:44:15Z",
+ "players": [
+  {
+   "no": 24,
+   "handle": "divithysavarkar",
+   "at": "2026-10-29T21:28:47Z",
+   "url": "https://x.com/nullslist/status/2115918795525009517",
+   "avatar": "https://pbs.twimg.com/profile_images/2117597496079958016/JTdj5gia_200x200.jpg"
+  },
+  {
+   "no": 25,
+   "handle": "N0name_Trader",
+   "at": "2026-10-29T22:25:12Z",
+   "url": "https://x.com/nullslist/status/2115932992950444322",
+   "avatar": "https://pbs.twimg.com/profile_images/2106817998031880194/CEF3wlkB_200x200.jpg"
+  },
+  {
+   "no": 26,
+   "handle": "nosuke_crypto",
+   "at": "2026-10-29T23:25:10Z",
+   "url": "https://x.com/nullslist/status/2115948084911874186",
+   "avatar": "https://pbs.twimg.com/profile_images/2120295802879066112/_bhh3hwV_200x200.jpg"
+  },
+  {
+   "no": 27,
+   "handle": "marlowlowlowlow",
+   "at": "2026-10-29T22:16:14Z",
+   "url": "https://x.com/nullslist/status/2115930736343523833",
+   "avatar": "https://pbs.twimg.com/profile_images/2101327794877943808/vubFgyoW_200x200.jpg"
+  },
+  {
+   "no": 28,
+   "handle": "kosmixer",
+   "at": "2026-10-29T22:16:38Z",
+   "url": "https://x.com/nullslist/status/2115930836155408789",
+   "avatar": "https://pbs.twimg.com/profile_images/2103999970768789504/PIF2h1nM_200x200.jpg"
+  },
+  {
+   "no": 29,
+   "handle": "whatislovv_",
+   "at": "2026-10-29T22:16:56Z",
+   "url": "https://x.com/nullslist/status/2115930915213877711",
+   "avatar": "https://pbs.twimg.com/profile_images/1947304801277992960/XILTjhJl_200x200.jpg"
+  },
+  {
+   "no": 30,
+   "handle": "Peymannaderi_",
+   "at": "2026-10-29T22:17:30Z",
+   "url": "https://x.com/nullslist/status/2115931055697830000",
+   "avatar": "https://pbs.twimg.com/profile_images/2054356327896428544/72f0dlTQ_200x200.jpg"
+  },
+  {
+   "no": 31,
+   "handle": "iseedeadflipper",
+   "at": "2026-10-29T22:18:18Z",
+   "url": "https://x.com/nullslist/status/2115931256806310293",
+   "avatar": "https://pbs.twimg.com/profile_images/2086967087914758144/2b1XdP6G_200x200.jpg"
+  },
+  {
+   "no": 32,
+   "handle": "panther5btc",
+   "at": "2026-10-29T22:19:22Z",
+   "url": "https://x.com/nullslist/status/2115931525841633549",
+   "avatar": "https://pbs.twimg.com/profile_images/2108388377057767424/aOx9R4vK_200x200.jpg"
+  },
+  {
+   "no": 33,
+   "handle": "levirietje",
+   "at": "2026-10-30T22:13:50Z",
+   "url": "https://x.com/nullslist/status/2116292521273823252",
+   "avatar": "https://pbs.twimg.com/profile_images/2095971102187028480/EcWumU-d_200x200.jpg"
+  },
+  {
+   "no": 34,
+   "handle": "itMolka",
+   "at": "2026-10-30T22:14:06Z",
+   "url": "https://x.com/nullslist/status/2116292586151284830",
+   "avatar": "https://pbs.twimg.com/profile_images/2103904481117102081/YOgHN5J3_200x200.jpg"
+  },
+  {
+   "no": 35,
+   "handle": "X181R",
+   "at": "2026-10-30T22:14:38Z",
+   "url": "https://x.com/nullslist/status/2116292721279181136",
+   "avatar": "https://pbs.twimg.com/profile_images/2114760719153381376/bXcliuCP_200x200.jpg"
+  },
+  {
+   "no": 36,
+   "handle": "OlawaleSik1288",
+   "at": "2026-10-30T22:14:47Z",
+   "url": "https://x.com/nullslist/status/2116292761162826051",
+   "avatar": "https://pbs.twimg.com/profile_images/2119451317412225024/XR6nygDe_200x200.jpg"
+  },
+  {
+   "no": 37,
+   "handle": "Gabby_is_me",
+   "at": "2026-10-30T22:15:15Z",
+   "url": "https://x.com/nullslist/status/2116292878553014313",
+   "avatar": "https://pbs.twimg.com/profile_images/912090408/2lmwin5_200x200.jpg"
+  },
+  {
+   "no": 38,
+   "handle": "digging4doge",
+   "at": "2026-10-30T23:29:51Z",
+   "url": "https://x.com/nullslist/status/2116311649992741229",
+   "avatar": "https://pbs.twimg.com/profile_images/1927203053855285248/ElG8pWKS_200x200.jpg"
+  },
+  {
+   "no": 39,
+   "handle": "kikinsodikin19",
+   "at": "2026-10-31T04:25:03Z",
+   "url": "https://x.com/nullslist/status/2116385941707177996",
+   "avatar": "https://pbs.twimg.com/profile_images/2110741385280385024/F9b6t10V_200x200.jpg"
+  },
+  {
+   "no": 40,
+   "handle": "lurkerboy19",
+   "at": "2026-10-31T04:27:25Z",
+   "url": "https://x.com/nullslist/status/2116386534479864030",
+   "avatar": "https://pbs.twimg.com/profile_images/2098865384132845568/AVUDglDX_200x200.jpg"
+  },
+  {
+   "no": 41,
+   "handle": "Abdullahthth",
+   "at": "2026-10-31T04:49:24Z",
+   "url": "https://x.com/nullslist/status/2116392066976461116",
+   "avatar": null
+  },
+  {
+   "no": 42,
+   "handle": "vikashg65743479",
+   "at": "2026-10-31T05:10:28Z",
+   "url": "https://x.com/nullslist/status/2116397370262818926",
+   "avatar": null
+  },
+  {
+   "no": 43,
+   "handle": "muizsamudra",
+   "at": "2026-10-31T05:13:54Z",
+   "url": "https://x.com/nullslist/status/2116398235128402376",
+   "avatar": null
+  },
+  {
+   "no": 44,
+   "handle": "mthokoz42936530",
+   "at": "2026-10-31T05:15:17Z",
+   "url": "https://x.com/nullslist/status/2116398581967880681",
+   "avatar": "https://pbs.twimg.com/profile_images/2111195952342286336/cBXhWLMi_200x200.jpg"
+  },
+  {
+   "no": 45,
+   "handle": "mahiralz256",
+   "at": "2026-10-31T05:19:44Z",
+   "url": "https://x.com/nullslist/status/2116399703206047770",
+   "avatar": null
+  },
+  {
+   "no": 46,
+   "handle": "brianswartz6",
+   "at": "2026-10-31T05:21:00Z",
+   "url": "https://x.com/nullslist/status/2116400019213349310",
+   "avatar": "https://pbs.twimg.com/profile_images/502399913997897728/64IF5s4n_200x200.jpeg"
+  },
+  {
+   "no": 47,
+   "handle": "hidalgohispano",
+   "at": "2026-10-31T05:22:33Z",
+   "url": "https://x.com/nullslist/status/2116400413242999094",
+   "avatar": null
+  },
+  {
+   "no": 48,
+   "handle": "juanramonkesler",
+   "at": "2026-10-31T05:23:47Z",
+   "url": "https://x.com/nullslist/status/2116400721675386916",
+   "avatar": null
+  },
+  {
+   "no": 49,
+   "handle": "khaledaswad2",
+   "at": "2026-10-31T05:25:10Z",
+   "url": "https://x.com/nullslist/status/2116401068166762580",
+   "avatar": "https://pbs.twimg.com/profile_images/3352954868/ac6189bcb1e4e7135ad1e31aa8ea6bae_200x200.png"
+  },
+  {
+   "no": 50,
+   "handle": "amangarg2101",
+   "at": "2026-10-31T05:26:32Z",
+   "url": "https://x.com/nullslist/status/2116401415241294018",
+   "avatar": null
+  },
+  {
+   "no": 51,
+   "handle": "Carolinandrea_r",
+   "at": "2026-10-31T05:27:47Z",
+   "url": "https://x.com/nullslist/status/2116401726597091809",
+   "avatar": "https://pbs.twimg.com/profile_images/1485297953313017859/RUAOTtYp_200x200.jpg"
+  },
+  {
+   "no": 52,
+   "handle": "franciscomayo14",
+   "at": "2026-10-31T05:35:32Z",
+   "url": "https://x.com/nullslist/status/2116403679674630570",
+   "avatar": "https://pbs.twimg.com/profile_images/2690267861/fdd0f0c4d3bc775d03ffd58773bb1859_200x200.jpeg"
+  },
+  {
+   "no": 53,
+   "handle": "belinaytriko",
+   "at": "2026-10-31T05:37:09Z",
+   "url": "https://x.com/nullslist/status/2116404085993754957",
+   "avatar": "https://pbs.twimg.com/profile_images/2111215033128505344/UBtwuzna_200x200.jpg"
+  },
+  {
+   "no": 54,
+   "handle": "sinabilaholic",
+   "at": "2026-10-31T05:38:25Z",
+   "url": "https://x.com/nullslist/status/2116404404832158159",
+   "avatar": null
+  },
+  {
+   "no": 55,
+   "handle": "geraldmumina_0",
+   "at": "2026-10-31T05:39:45Z",
+   "url": "https://x.com/nullslist/status/2116404741685067911",
+   "avatar": "https://pbs.twimg.com/profile_images/2120741760313806848/P9GM2KXQ_200x200.jpg"
+  },
+  {
+   "no": 56,
+   "handle": "Paulinadiazher2",
+   "at": "2026-10-31T05:41:20Z",
+   "url": "https://x.com/nullslist/status/2116405136113234022",
+   "avatar": null
+  },
+  {
+   "no": 57,
+   "handle": "tommytan2002",
+   "at": "2026-10-31T05:42:29Z",
+   "url": "https://x.com/nullslist/status/2116405429244670177",
+   "avatar": null
+  },
+  {
+   "no": 58,
+   "handle": "adewaleabosede3",
+   "at": "2026-10-31T05:44:20Z",
+   "url": "https://x.com/nullslist/status/2116405893717717440",
+   "avatar": null
+  },
+  {
+   "no": 59,
+   "handle": "jaylas_mommy12",
+   "at": "2026-10-31T05:45:33Z",
+   "url": "https://x.com/nullslist/status/2116406197901205563",
+   "avatar": "https://pbs.twimg.com/profile_images/2110817769344135168/klGilL9z_200x200.jpg"
+  },
+  {
+   "no": 60,
+   "handle": "aovviamente",
+   "at": "2026-10-31T05:46:58Z",
+   "url": "https://x.com/nullslist/status/2116406554362589499",
+   "avatar": null
+  },
+  {
+   "no": 61,
+   "handle": "Londonnb12Rudy",
+   "at": "2026-10-31T06:09:31Z",
+   "url": "https://x.com/nullslist/status/2116412230665216427",
+   "avatar": null
+  },
+  {
+   "no": 62,
+   "handle": "shelbymia1",
+   "at": "2026-10-31T06:11:09Z",
+   "url": "https://x.com/nullslist/status/2116412640406761903",
+   "avatar": null
+  },
+  {
+   "no": 63,
+   "handle": "NANDHUSURYAARUN",
+   "at": "2026-10-31T06:12:26Z",
+   "url": "https://x.com/nullslist/status/2116412965876343002",
+   "avatar": "https://pbs.twimg.com/profile_images/2110407238464507904/jFj29PaC_200x200.jpg"
+  },
+  {
+   "no": 64,
+   "handle": "Jacintarita2",
+   "at": "2026-10-31T06:13:57Z",
+   "url": "https://x.com/nullslist/status/2116413345364369646",
+   "avatar": null
+  },
+  {
+   "no": 65,
+   "handle": "malikatantan1",
+   "at": "2026-10-31T06:15:13Z",
+   "url": "https://x.com/nullslist/status/2116413666819965180",
+   "avatar": null
+  },
+  {
+   "no": 66,
+   "handle": "hjghfrhgfbv587",
+   "at": "2026-10-31T19:17:12Z",
+   "url": "https://x.com/nullslist/status/2116610459264590100",
+   "avatar": "https://pbs.twimg.com/profile_images/2107919885271707649/D4QMxMtt_200x200.jpg"
+  },
+  {
+   "no": 67,
+   "handle": "jemimafernande9",
+   "at": "2026-10-31T19:18:54Z",
+   "url": "https://x.com/nullslist/status/2116610883660996633",
+   "avatar": null
+  },
+  {
+   "no": 68,
+   "handle": "PaddingtonCNFT",
+   "at": "2026-11-02T15:25:12Z",
+   "url": "https://x.com/nullslist/status/2117276848233001011",
+   "avatar": "https://pbs.twimg.com/profile_images/1571974206752956419/0DWYhprU_200x200.jpg"
+  },
+  {
+   "no": 69,
+   "handle": "Mrlwprofile",
+   "at": "2026-11-02T15:36:42Z",
+   "url": "https://x.com/nullslist/status/2117279741627568465",
+   "avatar": "https://pbs.twimg.com/profile_images/2100656257300406272/tLIn3LDB_200x200.jpg"
+  },
+  {
+   "no": 70,
+   "handle": "Agarwalfeeds",
+   "at": "2026-11-02T20:30:50Z",
+   "url": "https://x.com/nullslist/status/2117353764445102477",
+   "avatar": "https://pbs.twimg.com/profile_images/2104568369236336640/EoWbeCG2_200x200.jpg"
+  },
+  {
+   "no": 71,
+   "handle": "Fomoths",
+   "at": "2026-11-02T20:30:55Z",
+   "url": "https://x.com/nullslist/status/2117353786377150562",
+   "avatar": "https://pbs.twimg.com/profile_images/2103537008685793280/VRsAEBDv_200x200.jpg"
+  },
+  {
+   "no": 72,
+   "handle": "icechog",
+   "at": "2026-11-02T20:31:15Z",
+   "url": "https://x.com/nullslist/status/2117353869894160506",
+   "avatar": "https://pbs.twimg.com/profile_images/2100923669836918784/Evuf_g-3_200x200.jpg"
+  },
+  {
+   "no": 73,
+   "handle": "0xMosquitoFire",
+   "at": "2026-11-03T18:21:42Z",
+   "url": "https://x.com/nullslist/status/2117683652242898997",
+   "avatar": "https://pbs.twimg.com/profile_images/2108551710566170626/WSOc5NAU_200x200.jpg"
+  },
+  {
+   "no": 74,
+   "handle": "JaiDLute",
+   "at": "2026-11-03T18:22:24Z",
+   "url": "https://x.com/nullslist/status/2117683831553610078",
+   "avatar": "https://pbs.twimg.com/profile_images/802532854320300032/4tZqXfnY_200x200.jpg"
+  },
+  {
+   "no": 75,
+   "handle": "vinniedotzec",
+   "at": "2026-11-03T18:22:35Z",
+   "url": "https://x.com/nullslist/status/2117683878362071232",
+   "avatar": "https://pbs.twimg.com/profile_images/2118097309187629056/INyDQddg_200x200.jpg"
+  },
+  {
+   "no": 76,
+   "handle": "AzrarM",
+   "at": "2026-11-04T17:14:51Z",
+   "url": "https://x.com/nullslist/status/2118029217954693281",
+   "avatar": "https://pbs.twimg.com/profile_images/2119608605565718528/peJt-oX0_200x200.jpg"
+  },
+  {
+   "no": 77,
+   "handle": "Vspruyt1",
+   "at": "2026-11-04T17:14:54Z",
+   "url": "https://x.com/nullslist/status/2118029231435190494",
+   "avatar": "https://pbs.twimg.com/profile_images/2101270063575662592/nUQn2jOq_200x200.jpg"
+  },
+  {
+   "no": 78,
+   "handle": "Nadhia08Nadhia",
+   "at": "2026-11-04T17:15:09Z",
+   "url": "https://x.com/nullslist/status/2118029295264178479",
+   "avatar": "https://pbs.twimg.com/profile_images/2097372987397898240/I7XaUBSC_200x200.jpg"
+  },
+  {
+   "no": 79,
+   "handle": "mihaikodo",
+   "at": "2026-11-05T17:40:35Z",
+   "url": "https://x.com/nullslist/status/2118398081586589883",
+   "avatar": "https://pbs.twimg.com/profile_images/2055321845549694976/tkrpmBl3_200x200.jpg"
+  },
+  {
+   "no": 80,
+   "handle": "OMYSMAJOR",
+   "at": "2026-11-05T17:46:17Z",
+   "url": "https://x.com/nullslist/status/2118399518647476482",
+   "avatar": "https://pbs.twimg.com/profile_images/2113577895058653184/_xAvpk-P_200x200.jpg"
+  },
+  {
+   "no": 81,
+   "handle": "halfbld",
+   "at": "2026-11-05T17:47:05Z",
+   "url": "https://x.com/nullslist/status/2118399719382688047",
+   "avatar": "https://pbs.twimg.com/profile_images/1951556129470775296/lYhS-kbs_200x200.jpg"
+  },
+  {
+   "no": 82,
+   "handle": "sergeserge1989",
+   "at": "2026-11-05T17:49:32Z",
+   "url": "https://x.com/nullslist/status/2118400336746488187",
+   "avatar": "https://pbs.twimg.com/profile_images/2051696165683396611/C-XySshw_200x200.jpg"
+  },
+  {
+   "no": 83,
+   "handle": "nonStopEon",
+   "at": "2026-11-05T17:49:43Z",
+   "url": "https://x.com/nullslist/status/2118400381277356382",
+   "avatar": "https://pbs.twimg.com/profile_images/2042877239772037120/f15kUbbJ_200x200.jpg"
+  },
+  {
+   "no": 84,
+   "handle": "suondmeoo",
+   "at": "2026-11-05T18:56:08Z",
+   "url": "https://x.com/nullslist/status/2118417094467362925",
+   "avatar": "https://pbs.twimg.com/profile_images/2054330686832885761/WsbAX3KS_200x200.jpg"
+  },
+  {
+   "no": 85,
+   "handle": "0xdebbie",
+   "at": "2026-11-05T18:56:17Z",
+   "url": "https://x.com/nullslist/status/2118417133176590696",
+   "avatar": "https://pbs.twimg.com/profile_images/2102805465734549505/DUabund5_200x200.jpg"
+  },
+  {
+   "no": 86,
+   "handle": "max_kh28",
+   "at": "2026-11-05T18:56:39Z",
+   "url": "https://x.com/nullslist/status/2118417224943763521",
+   "avatar": "https://pbs.twimg.com/profile_images/1920367507853987841/zdF5OsHM_200x200.jpg"
+  },
+  {
+   "no": 87,
+   "handle": "NearFrancais",
+   "at": "2026-11-06T13:57:34Z",
+   "url": "https://x.com/nullslist/status/2118704346690916604",
+   "avatar": "https://pbs.twimg.com/profile_images/2104540053011578880/SZqt2EFy_200x200.jpg"
+  },
+  {
+   "no": 88,
+   "handle": "SKYTONET_",
+   "at": "2026-11-06T13:59:16Z",
+   "url": "https://x.com/nullslist/status/2118704772710547722",
+   "avatar": "https://pbs.twimg.com/profile_images/2101745187458330624/vTSW4fx3_200x200.jpg"
+  },
+  {
+   "no": 89,
+   "handle": "meek__01",
+   "at": "2026-11-06T13:59:19Z",
+   "url": "https://x.com/nullslist/status/2118704785352204581",
+   "avatar": "https://pbs.twimg.com/profile_images/2102579366274256896/3rWXNJck_200x200.jpg"
+  },
+  {
+   "no": 90,
+   "handle": "Ombaba77",
+   "at": "2026-11-06T14:01:57Z",
+   "url": "https://x.com/nullslist/status/2118705448819830784",
+   "avatar": "https://pbs.twimg.com/profile_images/2101169413974360064/s6KKx1Nn_200x200.jpg"
+  },
+  {
+   "no": 91,
+   "handle": "Daymon_Mc",
+   "at": "2026-11-06T14:01:57Z",
+   "url": "https://x.com/nullslist/status/2118705449927057888",
+   "avatar": "https://pbs.twimg.com/profile_images/1957482711322619907/he0iY8Xo_200x200.jpg"
+  },
+  {
+   "no": 92,
+   "handle": "stacks_on",
+   "at": "2026-11-06T19:30:40Z",
+   "url": "https://x.com/nullslist/status/2118788174373634218",
+   "avatar": "https://pbs.twimg.com/profile_images/2012583981703737344/nDywaEr2_200x200.jpg"
+  },
+  {
+   "no": 93,
+   "handle": "danilow_s",
+   "at": "2026-11-06T19:30:53Z",
+   "url": "https://x.com/nullslist/status/2118788228270452759",
+   "avatar": "https://pbs.twimg.com/profile_images/2101752841178402816/d4ISVExS_200x200.jpg"
+  },
+  {
+   "no": 94,
+   "handle": "Willow940903",
+   "at": "2026-11-06T19:31:19Z",
+   "url": "https://x.com/nullslist/status/2118788337582346331",
+   "avatar": "https://pbs.twimg.com/profile_images/2114830988052144128/r9eI9Bwt_200x200.jpg"
+  },
+  {
+   "no": 95,
+   "handle": "polintoskina",
+   "at": "2026-11-06T19:31:21Z",
+   "url": "https://x.com/nullslist/status/2118788344159088794",
+   "avatar": "https://pbs.twimg.com/profile_images/2101936908716711936/EDAjCkPr_200x200.jpg"
+  },
+  {
+   "no": 96,
+   "handle": "SemaKosh",
+   "at": "2026-11-06T19:31:52Z",
+   "url": "https://x.com/nullslist/status/2118788476866904281",
+   "avatar": "https://pbs.twimg.com/profile_images/1974172021383696384/zpH4IKzp_200x200.jpg"
+  },
+  {
+   "no": 97,
+   "handle": "KairGrisha",
+   "at": "2026-11-06T19:32:51Z",
+   "url": "https://x.com/nullslist/status/2118788721424122094",
+   "avatar": "https://pbs.twimg.com/profile_images/2110428613547864064/YWbfgrFE_200x200.jpg"
+  },
+  {
+   "no": 98,
+   "handle": "Oxjerun",
+   "at": "2026-11-06T19:32:51Z",
+   "url": "https://x.com/nullslist/status/2118788722481098826",
+   "avatar": "https://pbs.twimg.com/profile_images/2112150039233519616/pCOKbwMa_200x200.jpg"
+  },
+  {
+   "no": 100,
+   "handle": "Surs51",
+   "at": "2026-11-07T16:05:33Z",
+   "url": "https://x.com/nullslist/status/2119098941941723530",
+   "avatar": "https://pbs.twimg.com/profile_images/2118077496201531392/4XDoLP4n_200x200.jpg"
+  },
+  {
+   "no": 101,
+   "handle": "syncropath",
+   "at": "2026-11-07T16:05:41Z",
+   "url": "https://x.com/nullslist/status/2119098974590189927",
+   "avatar": "https://pbs.twimg.com/profile_images/2089052520224346112/vWw8krG1_200x200.jpg"
+  },
+  {
+   "no": 102,
+   "handle": "danseyka",
+   "at": "2026-11-07T16:05:43Z",
+   "url": "https://x.com/nullslist/status/2119098983792415019",
+   "avatar": "https://pbs.twimg.com/profile_images/2099963822291181568/V7ZcLOPr_200x200.jpg"
+  },
+  {
+   "no": 103,
+   "handle": "kristian_diary",
+   "at": "2026-11-07T16:05:52Z",
+   "url": "https://x.com/nullslist/status/2119099022216421808",
+   "avatar": "https://pbs.twimg.com/profile_images/2119782509722451968/p4qq8xi6_200x200.jpg"
+  },
+  {
+   "no": 104,
+   "handle": "Aryanbabariy",
+   "at": "2026-11-07T16:06:03Z",
+   "url": "https://x.com/nullslist/status/2119099069729501356",
+   "avatar": "https://pbs.twimg.com/profile_images/2100791601132150784/-V2aM07q_200x200.jpg"
+  },
+  {
+   "no": 105,
+   "handle": "trenchwolfs",
+   "at": "2026-11-08T18:41:16Z",
+   "url": "https://x.com/nullslist/status/2119500518099648569",
+   "avatar": "https://pbs.twimg.com/profile_images/2119499935725039617/Z3R0lQKt_200x200.jpg"
+  },
+  {
+   "no": 106,
+   "handle": "zeljko179",
+   "at": "2026-11-09T17:10:10Z",
+   "url": "https://x.com/nullslist/status/2119839979245322512",
+   "avatar": "https://pbs.twimg.com/profile_images/2037845576692207616/uRC20F3z_200x200.jpg"
+  },
+  {
+   "no": 107,
+   "handle": "baselineaeth",
+   "at": "2026-11-09T17:10:19Z",
+   "url": "https://x.com/nullslist/status/2119840018722103343",
+   "avatar": "https://pbs.twimg.com/profile_images/1952735830570635264/IcydbrCJ_200x200.jpg"
+  },
+  {
+   "no": 108,
+   "handle": "UKRMarian",
+   "at": "2026-11-09T17:10:56Z",
+   "url": "https://x.com/nullslist/status/2119840174225997890",
+   "avatar": "https://pbs.twimg.com/profile_images/2039810421603885056/A9tG789u_200x200.jpg"
+  },
+  {
+   "no": 109,
+   "handle": "RjRoht",
+   "at": "2026-11-09T17:10:57Z",
+   "url": "https://x.com/nullslist/status/2119840178374058373",
+   "avatar": "https://pbs.twimg.com/profile_images/2037628631984578560/xOA_DFi7_200x200.jpg"
+  },
+  {
+   "no": 110,
+   "handle": "vickkypure",
+   "at": "2026-11-09T17:11:11Z",
+   "url": "https://x.com/nullslist/status/2119840236523917324",
+   "avatar": "https://pbs.twimg.com/profile_images/2109712368846458880/nKQ0rmA0_200x200.jpg"
+  },
+  {
+   "no": 111,
+   "handle": "bunjil",
+   "at": "2026-11-11T22:11:01Z",
+   "url": "https://x.com/nullslist/status/2120640467721183335",
+   "avatar": "https://pbs.twimg.com/profile_images/2108173938475806720/50kBW9aT_200x200.jpg"
+  },
+  {
+   "no": 112,
+   "handle": "Marko1992523482",
+   "at": "2026-11-13T18:41:26Z",
+   "url": "https://x.com/nullslist/status/2121312497231622232",
+   "avatar": "https://pbs.twimg.com/profile_images/2051400400822030336/1zk-XAq1_200x200.jpg"
+  },
+  {
+   "no": 113,
+   "handle": "0xNFT_Owner",
+   "at": "2026-11-13T18:41:51Z",
+   "url": "https://x.com/nullslist/status/2121312605704695841",
+   "avatar": "https://pbs.twimg.com/profile_images/1949540213811769344/-I_J-ckn_200x200.jpg"
+  },
+  {
+   "no": 114,
+   "handle": "Milanko99",
+   "at": "2026-11-13T18:42:46Z",
+   "url": "https://x.com/nullslist/status/2121312832956330263",
+   "avatar": "https://pbs.twimg.com/profile_images/1994018244139589632/qSntCvWe_200x200.jpg"
+  }
+ ]
 }
