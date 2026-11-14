@@ -373,6 +373,23 @@
    },
    "name": "NΛTHΛNX",
    "avatar": "https://pbs.twimg.com/profile_images/2106370757055959040/tCLI1agC_200x200.jpg"
+  },
+  {
+   "id": "2121370368548253942",
+   "at": "2026-11-13T22:31:23Z",
+   "url": "https://x.com/nullsxyz/status/2121370368548253942",
+   "winner": "0x_angell",
+   "for_id": "2121287847584096337",
+   "for": {
+    "id": "2121287847584096337",
+    "url": "https://x.com/0x_angell/status/2121287847584096337",
+    "at": "2026-11-13T17:03:29Z",
+    "text": "Press start, I'm bringing my own touch to the world of @nullsxyz 😇💖\n\nI wanted this fan art to feel like my own little connection to the Nulls universe. Every detail was drawn with love, care, and a lot of dedication.\n\nCan't wait to see the adventure unfold on NEAR.",
+    "kind": "art",
+    "re": null
+   },
+   "name": "0xangel",
+   "avatar": "https://pbs.twimg.com/profile_images/1999025495854182400/_faFMfz2_200x200.jpg"
   }
  ],
  "quests": [
@@ -411,7 +428,7 @@
    "solve_secs": 18
   }
  ],
- "scanned_to": "2121302250769506650",
+ "scanned_to": "2121370368548253942",
  "list": {
   "count": 113,
   "newest": 114,
@@ -421,5 +438,5 @@
   "latest": "Milanko99",
   "at": "2026-11-13T18:42:46Z"
  },
- "updated": "2026-11-13T20:32:20Z"
+ "updated": "2026-11-14T00:54:15Z"
 }
