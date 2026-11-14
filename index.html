@@ -242,7 +242,7 @@
   <footer>
     <p>Made by <a href="https://x.com/0xAirr">@0xAirr</a>. Fan-made and unofficial, not affiliated with nulls. Built from public posts by
       <a href="https://x.com/nullsxyz">@nullsxyz</a> and <a href="https://x.com/nullslist">@nullslist</a>,
-      refreshed about every 10 minutes. Card colors aren't public, so blocks are colored by what the card was earned for.
+      refreshed automatically, usually within the hour. Card colors aren't public, so blocks are colored by what the card was earned for.
       <span id="updated"></span> <a href="https://github.com/0xairr/nulls-ledger">Source</a>.</p>
   </footer>
 </main>
@@ -398,7 +398,7 @@
   function renderQuests() {
     const ul = $("quests");
     ul.replaceChildren();
-    if (!ledger.quests.length) ul.append(el("li", { className: "message", textContent: "No side quests yet. New ones show up here within about 10 minutes." }));
+    if (!ledger.quests.length) ul.append(el("li", { className: "message", textContent: "No side quests yet. New ones show up here on the next automatic refresh." }));
     ledger.quests.forEach((q) => {
       const solved = q.solved_by != null;
       // Solved quests jump to the winner's block; open ones link to the quest post on X.
@@ -503,11 +503,11 @@
     if (awards.length) select(awards.length - 1);
     else {
       $("title").textContent = "No saves yet";
-      $("subtitle").textContent = "No memory cards have been handed out yet. They show up here within about 10 minutes.";
+      $("subtitle").textContent = "No memory cards have been handed out yet. They show up here on the next automatic refresh.";
     }
   }).catch(() => {
     $("title").textContent = "Couldn't read the memory card";
-    $("subtitle").textContent = "The ledger didn't load. It's refreshed every 10 minutes, so try again in a moment.";
+    $("subtitle").textContent = "The ledger didn't load. Check your connection and reload the page.";
   });
 })();
 </script>

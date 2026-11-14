@@ -1,8 +1,10 @@
 name: collect
-# Refresh ledger.json from public X data about every 10 minutes; commit only when it changed.
+# Refresh ledger.json from public X data; commit only when it changed. Asks for every 10 minutes,
+# off the top of the hour (GitHub's busiest time), but GitHub delays scheduled runs on small repos:
+# the first 11 hours got 2 runs, 6h apart. Nothing is lost when a run is late; it just catches up.
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "3-59/10 * * * *"
   workflow_dispatch:
 permissions:
   contents: write

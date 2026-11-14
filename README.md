@@ -29,7 +29,9 @@ Made by [@0xAirr](https://x.com/0xAirr). Unofficial and not affiliated with null
   run or a gap, because FxTwitter's deeper pages often 404 from GitHub's servers.
 - **Avatars:** card winners' avatars are reused; others are looked up, at most 30 per run, one
   try each. A handle that fails 3 runs (renamed or suspended) keeps a nulls silhouette.
-- `.github/workflows/collect.yml` runs the tests, then the collector, every ~10 minutes, and commits
+- `.github/workflows/collect.yml` runs the tests, then the collector, on a schedule that asks for
+  every 10 minutes (GitHub delays scheduled runs on small repos, so in practice it can be hours;
+  nothing is lost, a late run catches up), and commits
   `ledger.json` only when something changed. It's incremental: anything that fails to load (FxTwitter
   is flaky from datacenter IPs) is retried on the next run instead of being skipped.
 - `index.html` is the whole site: no build step. It reads `ledger.json` from the repo (so updates show
