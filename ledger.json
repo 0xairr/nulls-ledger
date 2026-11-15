@@ -479,18 +479,18 @@
    "solve_secs": 18
   }
  ],
- "scanned_to": "2121953876953751753",
+ "scanned_to": "2122026877112185017",
  "list": {
-  "count": 113,
-  "newest": 114,
+  "count": 116,
+  "newest": 117,
   "first_announced": 24,
   "skipped": [
    99
   ],
-  "latest": "Milanko99",
-  "at": "2026-11-13T18:42:46Z"
+  "latest": "Kang_Vinh",
+  "at": "2026-11-15T18:00:15Z"
  },
- "updated": "2026-11-15T16:56:44Z",
+ "updated": "2026-11-15T21:38:47Z",
  "players": [
   {
    "no": 24,
@@ -1138,6 +1138,28 @@
    "at": "2026-11-13T18:42:46Z",
    "url": "https://x.com/nullslist/status/2121312832956330263",
    "avatar": "https://pbs.twimg.com/profile_images/1994018244139589632/qSntCvWe_200x200.jpg"
+  },
+  {
+   "no": 115,
+   "handle": "Kirraa2105",
+   "at": "2026-11-15T18:00:15Z",
+   "url": "https://x.com/nullslist/status/2122026908661530802",
+   "avatar": "https://pbs.twimg.com/profile_images/2050208043833675776/Yks-uHsH_200x200.jpg"
+  },
+  {
+   "no": 116,
+   "handle": "matuges",
+   "at": "2026-11-15T18:00:15Z",
+   "url": "https://x.com/nullslist/status/2122026908783181981",
+   "avatar": null,
+   "avatar_misses": 1
+  },
+  {
+   "no": 117,
+   "handle": "Kang_Vinh",
+   "at": "2026-11-15T18:00:15Z",
+   "url": "https://x.com/nullslist/status/2122026910389510541",
+   "avatar": "https://pbs.twimg.com/profile_images/1960302198900109312/InCjex-4_200x200.jpg"
   }
  ]
 }
