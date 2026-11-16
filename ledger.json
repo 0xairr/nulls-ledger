@@ -441,6 +441,23 @@
    },
    "name": "Taking Tom",
    "avatar": "https://pbs.twimg.com/profile_images/2121896747349995521/H0Vkq2jv_200x200.jpg"
+  },
+  {
+   "id": "2122338335440199712",
+   "at": "2026-11-16T14:37:44Z",
+   "url": "https://x.com/nullsxyz/status/2122338335440199712",
+   "winner": "iamlequanghuong",
+   "for_id": "2122244899659722952",
+   "for": {
+    "id": "2122244899659722952",
+    "url": "https://x.com/iamlequanghuong/status/2122244899659722952",
+    "at": "2026-11-16T08:26:28Z",
+    "text": "🎮 INTRODUCING NULLS HANDHELD\n\nInspired by the @nullsxyz  project, I created NULLS HANDHELD as a small contribution to the community.\n\n🔗 https://memorycade.online/\n\nWHAT IS NULLS HANDHELD?\n\nIt's a retro-style handheld gaming console simulation featuring 5 different mini-games, whe",
+    "kind": "build",
+    "re": null
+   },
+   "name": "iamlequanghuong🔺",
+   "avatar": "https://pbs.twimg.com/profile_images/2121688854742843392/pcKSl-xd_200x200.jpg"
   }
  ],
  "quests": [
@@ -479,7 +496,7 @@
    "solve_secs": 18
   }
  ],
- "scanned_to": "2122026877112185017",
+ "scanned_to": "2122370304060366849",
  "list": {
   "count": 116,
   "newest": 117,
@@ -490,7 +507,7 @@
   "latest": "Kang_Vinh",
   "at": "2026-11-15T18:00:15Z"
  },
- "updated": "2026-11-16T01:24:08Z",
+ "updated": "2026-11-16T18:52:12Z",
  "players": [
   {
    "no": 24,
