@@ -532,16 +532,16 @@
  ],
  "scanned_to": "2122820528847360273",
  "list": {
-  "count": 116,
-  "newest": 117,
+  "count": 117,
+  "newest": 118,
   "first_announced": 24,
   "skipped": [
    99
   ],
-  "latest": "Kang_Vinh",
-  "at": "2026-11-15T18:00:15Z"
+  "latest": "0xstickman",
+  "at": "2026-11-18T22:10:41Z"
  },
- "updated": "2026-11-18T01:50:41Z",
+ "updated": "2026-11-19T00:33:52Z",
  "players": [
   {
    "no": 24,
@@ -1211,6 +1211,13 @@
    "at": "2026-11-15T18:00:15Z",
    "url": "https://x.com/nullslist/status/2122026910389510541",
    "avatar": "https://pbs.twimg.com/profile_images/1960302198900109312/InCjex-4_200x200.jpg"
+  },
+  {
+   "no": 118,
+   "handle": "0xstickman",
+   "at": "2026-11-18T22:10:41Z",
+   "url": "https://x.com/nullslist/status/2123177099737374748",
+   "avatar": "https://pbs.twimg.com/profile_images/2023449361351430144/s6wleNmg_200x200.jpg"
   }
  ]
 }
