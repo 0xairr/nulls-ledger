@@ -583,16 +583,16 @@
  ],
  "scanned_to": "2123450442973954110",
  "list": {
-  "count": 117,
-  "newest": 118,
+  "count": 118,
+  "newest": 119,
   "first_announced": 24,
   "skipped": [
    99
   ],
-  "latest": "0xstickman",
-  "at": "2026-11-18T22:10:41Z"
+  "latest": "besiktaspokemon",
+  "at": "2026-11-19T20:30:42Z"
  },
- "updated": "2026-11-19T16:59:01Z",
+ "updated": "2026-11-19T23:29:21Z",
  "players": [
   {
    "no": 24,
@@ -1269,6 +1269,13 @@
    "at": "2026-11-18T22:10:41Z",
    "url": "https://x.com/nullslist/status/2123177099737374748",
    "avatar": "https://pbs.twimg.com/profile_images/2023449361351430144/s6wleNmg_200x200.jpg"
+  },
+  {
+   "no": 119,
+   "handle": "besiktaspokemon",
+   "at": "2026-11-19T20:30:42Z",
+   "url": "https://x.com/nullslist/status/2123514323213414837",
+   "avatar": "https://pbs.twimg.com/profile_images/2120285020195581952/CcfhKRqP_200x200.jpg"
   }
  ]
 }
