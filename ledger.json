@@ -583,16 +583,16 @@
  ],
  "scanned_to": "2123450442973954110",
  "list": {
-  "count": 118,
-  "newest": 119,
+  "count": 123,
+  "newest": 124,
   "first_announced": 24,
   "skipped": [
    99
   ],
-  "latest": "besiktaspokemon",
-  "at": "2026-11-19T20:30:42Z"
+  "latest": "PyoNft",
+  "at": "2026-11-23T17:36:01Z"
  },
- "updated": "2026-11-19T23:29:21Z",
+ "updated": "2026-11-24T01:02:22Z",
  "players": [
   {
    "no": 24,
@@ -1276,6 +1276,42 @@
    "at": "2026-11-19T20:30:42Z",
    "url": "https://x.com/nullslist/status/2123514323213414837",
    "avatar": "https://pbs.twimg.com/profile_images/2120285020195581952/CcfhKRqP_200x200.jpg"
+  },
+  {
+   "no": 120,
+   "handle": "Callmefttm",
+   "at": "2026-11-23T17:34:01Z",
+   "url": "https://x.com/nullslist/status/2124919409726685588",
+   "avatar": "https://pbs.twimg.com/profile_images/2121272501531475968/l5lURlO__200x200.jpg"
+  },
+  {
+   "no": 121,
+   "handle": "NansaBalamt",
+   "at": "2026-11-23T17:34:01Z",
+   "url": "https://x.com/nullslist/status/2124919410309656914",
+   "avatar": null,
+   "avatar_misses": 1
+  },
+  {
+   "no": 122,
+   "handle": "PartiganoB",
+   "at": "2026-11-23T17:34:41Z",
+   "url": "https://x.com/nullslist/status/2124919577951748591",
+   "avatar": "https://pbs.twimg.com/profile_images/2121272722978201600/aN258Zpm_200x200.jpg"
+  },
+  {
+   "no": 123,
+   "handle": "lokwater_",
+   "at": "2026-11-23T17:35:34Z",
+   "url": "https://x.com/nullslist/status/2124919801583694071",
+   "avatar": "https://pbs.twimg.com/profile_images/2103842392025829376/Md3rAhz4_200x200.jpg"
+  },
+  {
+   "no": 124,
+   "handle": "PyoNft",
+   "at": "2026-11-23T17:36:01Z",
+   "url": "https://x.com/nullslist/status/2124919914536345923",
+   "avatar": "https://pbs.twimg.com/profile_images/2122684282200375296/7jUAq1F__200x200.jpg"
   }
  ]
 }
