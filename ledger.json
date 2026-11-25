@@ -583,16 +583,16 @@
  ],
  "scanned_to": "2123450442973954110",
  "list": {
-  "count": 123,
-  "newest": 124,
+  "count": 125,
+  "newest": 126,
   "first_announced": 24,
   "skipped": [
    99
   ],
-  "latest": "PyoNft",
-  "at": "2026-11-23T17:36:01Z"
+  "latest": "Johnvo_0606",
+  "at": "2026-11-25T18:37:33Z"
  },
- "updated": "2026-11-24T20:55:45Z",
+ "updated": "2026-11-25T23:10:33Z",
  "players": [
   {
    "no": 24,
@@ -1312,6 +1312,21 @@
    "at": "2026-11-23T17:36:01Z",
    "url": "https://x.com/nullslist/status/2124919914536345923",
    "avatar": "https://pbs.twimg.com/profile_images/2122684282200375296/7jUAq1F__200x200.jpg"
+  },
+  {
+   "no": 125,
+   "handle": "glsh0157",
+   "at": "2026-11-25T18:37:20Z",
+   "url": "https://x.com/nullslist/status/2125660119551607291",
+   "avatar": "https://pbs.twimg.com/profile_images/2012412777231732736/cyO5-sqE_200x200.jpg"
+  },
+  {
+   "no": 126,
+   "handle": "Johnvo_0606",
+   "at": "2026-11-25T18:37:33Z",
+   "url": "https://x.com/nullslist/status/2125660177491747021",
+   "avatar": null,
+   "avatar_misses": 1
   }
  ]
 }
